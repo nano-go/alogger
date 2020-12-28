@@ -1,0 +1,4 @@
+/build
+/libs
+/gitignore
+/src/main/java/com/nano/logger/test/*.java

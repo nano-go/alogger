@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = "com.github.nano-go"
+version = "0.0.1"
+
+android {
+	compileSdkVersion 28
+	buildToolsVersion "28.0.3"
+
+	defaultConfig {
+		minSdkVersion 14
+		targetSdkVersion 28
+		versionCode 1
+		versionName version
+	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			debuggable true
+		}
+		
+		debug {
+			minifyEnabled false
+			debuggable true
+		}
+	}
+	
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+}
+
+task copyTestDir(type: Copy) {
+	from "src/main/java" + LOGGER_TEST_PATH
+	into "src/test/java" + LOGGER_TEST_PATH
+	include "*.java"
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+	options.encoding = "UTF-8"
+	source = android.sourceSets.main.java.srcDirs
+	classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	compileOnly 'androidx.annotation:annotation:1.1.0'
+	compileOnly "androidx.lifecycle:lifecycle-runtime:2.2.0"
+	
+	testCompile "junit:junit:$JUNIT_VERSION"
+}

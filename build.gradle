@@ -1,0 +1,36 @@
+buildscript {
+    
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+        maven { url "https://clojars.org/repo/" }
+        maven { url "https://jitpack.io" }
+        google()
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$BUILD_GRAFLE_VERSIO"
+		classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$GRADLE_BINTRAY_PLUGIN"
+        classpath "com.github.dcendents:android-maven-gradle-plugin:$ANDROID_MAVEN_GRAFLE_PLUGIN_VERSION"
+    }
+    
+}
+allprojects {
+    repositories {
+		maven { url 'https://maven.aliyun.com/repository/public/' } 
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+        maven { url "https://clojars.org/repo/" }
+        maven { url "https://jitpack.io" }
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

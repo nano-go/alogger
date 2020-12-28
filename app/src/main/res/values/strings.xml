@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Logger</string>
+	
+	
+    <string name="menu_print_xml">Print XML</string>
+	<string name="content_description_menu_print_xml">print xml</string>
+	
+	<string name="menu_print_json">Print JSON</string>
+	<string name="content_description_menu_print_json">print json</string>
+	
+	<string name="menu_print_array">Print Array</string>
+	<string name="content_description_menu_print_array">print array</string>
+	
+	<string name="menu_print_collection">Print Collection</string>
+	<string name="content_description_menu_print_collection">print collection</string>
+	
+	<string name="menu_clear_log">Clear Logs</string>
+	<string name="content_description_menu_clear_log">clear logs</string>
+	
+	
+</resources>
