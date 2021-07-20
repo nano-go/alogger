@@ -9,13 +9,15 @@ import com.nano.logger.config.LoggerConfiguration;
 import com.nano.logger.listener.LoggerListener;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.Collections;
 
 public class NotifyListenersLogger extends ILogger {
 	
-	private HashSet<LoggerListener> mListeners ;
+	private Set<LoggerListener> mListeners ;
 	
 	public NotifyListenersLogger() {
-		mListeners = new HashSet<>() ;
+		mListeners = Collections.synchronizedSet(new HashSet<LoggerListener>());
 	}
 
 	@Override

@@ -1,13 +1,12 @@
 package com.nano.logger;
-import androidx.annotation.NonNull;
+import android.annotation.NonNull;
 import com.nano.logger.config.LoggerConfiguration;
 import com.nano.logger.format.MessageFormater;
 import com.nano.logger.util.PrettyTable;
 import com.nano.logger.util.PrettyTable.Section;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.List;
 
 /**
  * Grahical decoration and additional information for log.
@@ -22,20 +21,16 @@ public class GraphicalLogger extends ILogger {
 		Printer.class.getName(),
 	} ;
 	
-	private PrettyTable prettyTable = new PrettyTable() ;
-	
 	private LoggerConfiguration config ;
 	
 	@Override
 	public void log(int level, String tag, String message) {
-		if(config == null){
-			config = LoggerConfiguration.getInstance() ;
-		}
+		config = LoggerConfiguration.getInstance() ;
 		logger.log(level, tag, wrap(level, tag, message)) ;
 	}
 	
 	private String wrap(int level,String tag,String message) {
-		
+		PrettyTable prettyTable = new PrettyTable() ;
 		if(config.isPrintHeader()){
 			writeHeader(prettyTable.addNewSection(), tag, level) ;
 		}
