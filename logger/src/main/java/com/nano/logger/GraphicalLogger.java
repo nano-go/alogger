@@ -1,5 +1,5 @@
 package com.nano.logger;
-import android.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.nano.logger.config.LoggerConfiguration;
 import com.nano.logger.format.MessageFormater;
 import com.nano.logger.util.PrettyTable;
